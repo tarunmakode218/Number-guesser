@@ -1,0 +1,42 @@
+# Level2task2 "NUmber Guesser"
+import random
+
+
+def number_guesser():
+    print("Welcome to the Number Guesser Game!")
+
+    
+    print("Please specify the range for the number:")
+    min_range = int(input("Enter the minimum number: "))
+    max_range = int(input("Enter the maximum number: "))
+
+    
+    number_to_guess = random.randint(min_range, max_range)
+    guess = None  
+
+    print(f"I'm thinking of a number between {min_range} and {max_range}.")
+    print("Can you guess what it is?")
+
+    
+    while guess != number_to_guess:
+        
+        guess = input("Enter your guess: ")
+
+        
+        try:
+            guess = int(guess)
+        except ValueError:
+        
+            print(f"Please enter a number between {min_range} and {max_range}.")
+            continue
+
+        
+        if guess < number_to_guess:
+            print("Too low! Try again.")
+        elif guess > number_to_guess:
+            print("Too high! Try again.")
+        else:
+            print(f"Congratulations! You guessed the right number, which was {number_to_guess}!")
+
+# Run the number guessing game
+number_guesser()
